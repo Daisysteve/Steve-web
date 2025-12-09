@@ -1025,3 +1025,48 @@ ul {
     color: var(--color-secondary-dark);
     padding: 0 1.5rem 1.5rem 1.5rem;
 }
+
+/* จัดการกล่องที่รวมรูปภาพ */
+#hero-bg-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -2; /* ดันไปไว้หลังสุด */
+}
+
+/* จัดการแต่ละรูปภาพ */
+.hero-slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+    opacity: 0; /* ซ่อนไว้ก่อน */
+    transition: opacity 1.5s ease-in-out; /* ทำให้การเปลี่ยนรูปนุ่มนวล 1.5 วิ */
+}
+
+/* รูปที่ Active จะแสดงขึ้นมา */
+.hero-slide.active {
+    opacity: 1;
+}
+
+/* ปรับ Hero Section เดิมให้รองรับ element ใหม่ */
+#hero-section {
+    position: relative; /* สำคัญ: เพื่อให้ตัวลูกอ้างอิงตำแหน่งได้ */
+    overflow: hidden;
+}
+
+/* ดัน Overlay เดิมให้มาอยู่เหนือรูปภาพ */
+.hero-overlay {
+    z-index: -1; 
+}
+
+/* ดันเนื้อหา (Content) ให้มาอยู่หน้าสุด */
+.hero-content {
+    z-index: 10;
+    position: relative;
+}
