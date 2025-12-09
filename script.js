@@ -1,25 +1,18 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const heroSection = document.getElementById('hero-section');
-    const images = [
-        'back1.jpg',
-        'back2.jpg',
-        'back3.jpg',
-        'back4.jpg',
-        'back5.jpg',
-    ];
-
-    images.forEach((image) => {
-        const img = new Image();
-        img.src = image;
-    });
-
+    const slides = document.querySelectorAll('.hero-slide');
     let currentIndex = 0;
 
     function changeBackground() {
-        heroSection.style.backgroundImage = `url('${images[currentIndex]}')`;
-        currentIndex = (currentIndex + 1) % images.length;
+        // เอา class 'active' ออกจากรูปเดิม (จะค่อยๆ จางหายไป)
+        slides[currentIndex].classList.remove('active');
+
+        // ขยับไปรูปถัดไป
+        currentIndex = (currentIndex + 1) % slides.length;
+
+        // ใส่ class 'active' ให้รูปใหม่ (จะค่อยๆ ชัดขึ้นมา)
+        slides[currentIndex].classList.add('active');
     }
 
-    changeBackground();
-    setInterval(changeBackground, 2300); 
+    // เปลี่ยนทุก 3 วินาที
+    setInterval(changeBackground, 3000); 
 });
