@@ -7,6 +7,12 @@ document.addEventListener('DOMContentLoaded', function() {
         'back4.jpg',
         'back5.jpg',
     ];
+
+    images.forEach((image) => {
+        const img = new Image();
+        img.src = image;
+    });
+
     let currentIndex = 0;
 
     function changeBackground() {
