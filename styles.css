@@ -1,0 +1,1027 @@
+/* ======== GLOBAL & FONT IMPORTS ======== */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@700&family=Lora:ital,wght@0,400;1,400&family=Inter:wght@400;500&display=swap');
+
+:root {
+    --color-dark: #111111;
+    --color-light: #ffffff;
+    --color-secondary-dark: #808080;
+    --color-secondary-light: #f5f5f5;
+    --color-border: #e5e5e5;
+    --font-display: 'Oswald', 'FuturaNike', 'Arial Narrow', sans-serif; /* Bold, condensed headlines */
+    --font-serif: 'Lora', 'Palatino', 'Georgia', serif; /* Elegant body text */
+    --font-sans: 'Inter', 'Helvetica Neue', 'Helvetica', 'Arial', sans-serif; /* Clean UI text */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-sans);
+    background-color: var(--color-light);
+    color: var(--color-dark);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+ul {
+    list-style: none;
+}
+
+/* ======== UTILITY & THEME CLASSES ======== */
+.section {
+    padding: 6rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.section-myproject {
+    padding: 8rem 2rem;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.dark-bg {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+}
+
+.light-bg {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+
+.section-title {
+    font-family: var(--font-display);
+    font-size: 2.5rem;
+    letter-spacing: 0.02em;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-bottom: 3rem;
+}
+
+/* ======== BUTTONS (Like Nike's) ======== */
+.btn {
+    display: inline-block;
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    padding: 0.8rem 2rem;
+    border-radius: 30px;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-dark {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+
+}
+.btn-dark:hover {
+    background-color: #333;
+}
+
+.btn-light {
+    background-color: var(--color-light);
+    color: var(--color-dark);
+}
+.btn-light:hover {
+    background-color: rgba(255, 255, 255, 0.8);
+}
+
+
+/* ======== NAVIGATION BAR ======== */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: var(--color-dark);
+    color: var(--color-light);
+    padding: 1.25rem 2rem;
+    z-index: 1000;
+}
+
+.navbar-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-logo {
+    font-family: var(--font-display);
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.nav-menu {
+    display: flex;
+    gap: 2rem;
+}
+
+.nav-link {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+}
+
+.nav-link:hover {
+    opacity: 1;
+}
+
+.nav-logo img {
+    height: 50px; 
+    width: auto;   
+}
+
+.nav-logo {
+    display: inline-block;
+    vertical-align: middle; 
+}
+
+/* ======== HERO SECTION ======== */
+
+.hero {
+    height: 100vh;
+    color: var(--color-light); /* <-- ได้มาจาก .hero ตัวบน */
+    display: flex;
+    align-items: center;
+    padding: 0 2rem;
+    padding-top: 60px; /* Offset for navbar */
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
+    justify-content: center;
+    position: relative; /* สำคัญสำหรับ overlay */
+    overflow: hidden; /* ป้องกันภาพเกิน */
+    transition: background-image 1s ease-in-out; /* เพิ่ม transition ให้การเปลี่ยนรูปนุ่มนวล */
+}
+
+.hero-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    width: 100%;
+    position: relative; /* สำคัญมากเพื่อให้ content อยู่เหนือ overlay */
+    z-index: 2; /* ให้ content อยู่เหนือ overlay */
+    color: var(--color-light); /* ให้ตัวอักษรเป็นสีขาว */
+    text-align: center; /* จัดข้อความให้อยู่กึ่งกลาง */
+}
+
+.hero-headline {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 10vw; /* Responsive font size */
+    line-height: 0.9;
+    text-transform: uppercase;
+    letter-spacing: -0.01em;
+    color: var(--color-light); /* <-- 'color' จากกฎที่อยู่ล่างสุดชนะ */
+}
+
+.hero-headline span {
+    display: block;
+}
+
+.hero-describeheadline {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    color: var(--color-light); /* <-- 'color' จากกฎที่อยู่ล่างสุดชนะ */
+}
+
+.hero-subheadline {
+    font-family: var(--font-serif);
+    font-style: italic;
+    font-size: 1.5rem;
+    margin-top: 1.5rem;
+    color: rgba(255, 255, 255, 0.8); /* <-- นี่คือสีที่ชนะ (ตัวล่างสุด) */
+}
+
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5); /* สีดำโปร่งแสง 50% */
+    z-index: 1; /* ให้ overlay อยู่เหนือรูปแต่ใต้ content */
+}
+
+/* ======== FEATURED PROJECTS ======== */
+.project-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 2rem;
+}
+
+.project-card {
+    background-color: var(--color-light);
+    border: 1px solid var(--color-border);
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.05);
+}
+
+.project-image-placeholder {
+    width: 100%;
+    height: 250px;       
+    overflow: hidden;    
+    position: relative;  
+}
+
+.project-image-placeholder img {
+    width: 100%;         
+    height: 100%;       
+    object-fit: cover;  
+}
+
+
+.project-info {
+    padding: 2rem;
+}
+
+.project-title {
+    font-family: var(--font-serif);
+    font-weight: 800;
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+}
+
+.project-description {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #444;
+    margin-bottom: 1.5rem;
+}
+
+.project-cta {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    color: var(--color-dark);
+}
+
+/* ======== ABOUT ME SECTION ======== */
+.about-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+}
+
+.about-text .section-title {
+    margin-bottom: 2rem;
+}
+
+.about-body {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: var(--color-secondary-light);
+    margin-bottom: 2.5rem;
+    max-width: 60ch; /* Optimal for readability */
+}
+
+.about-image-placeholder {
+    width: 100%;
+    height: 600px;
+    background-color: #222;
+    overflow: hidden; /* ป้องกันรูปภาพล้นขอบ */
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    color: var(--color-secondary-dark); */
+}
+
+.about-image-placeholder img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* นี่คือคำสั่งสำคัญ! */
+    object-position: center; /* เลือกได้ว่าจะให้โฟกัสส่วนไหน (เช่น top, center, bottom) */
+}
+
+/* ======== CALL TO ACTION (CTA) SECTION ======== */
+.cta-section {
+    text-align: center;
+    padding: 8rem 2rem;
+}
+
+.cta-headline {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 8vw;
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: #111111;
+}
+
+.cta-subheadline {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: #444;
+    margin-top: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+/* ======== FOOTER ======== */
+.footer {
+    padding: 2rem 2rem;
+    text-align: center;
+}
+
+.social-links {
+    margin-bottom: 1.5rem;
+}
+
+.social-links a {
+    font-family: var(--font-sans);
+    font-weight: 500;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    margin: 0 1rem;
+    opacity: 0.75;
+    transition: opacity 0.3s ease;
+    display: inline-flex;
+    align-items: center;
+}
+
+.social-links a:hover {
+    opacity: 1;
+}
+
+.social-links a svg {
+    width: 24px;  /* กำหนดขนาดไอคอน */
+    height: 24px;
+    fill: currentColor; /* คำสั่งสำคัญ: ทำให้ไอคอนเป็นสีขาว (ตามสีตัวอักษร) */
+}
+
+/* ======== RESPONSIVE DESIGN ======== */
+
+@media (max-width: 900px) {
+    .hero-headline {
+        font-size: 15vw;
+    }
+
+    .about-container {
+        grid-template-columns: 1fr;
+    }
+
+    .about-image-placeholder {
+        height: 400px;
+        order: -1; /* Moves image to the top on mobile */
+    }
+}
+
+@media (max-width: 768px) {
+    .section {
+        padding: 4rem 1.5rem;
+    }
+    
+    .nav-menu {
+        /* On mobile, you might hide this or just let it be. 
+           For this simple portfolio, we'll just reduce the gap. */
+        gap: 1.5rem;
+    }
+
+    .nav-link {
+        font-size: 0.8rem;
+    }
+
+    .nav-logo {
+        font-size: 1.25rem;
+    }
+
+    .project-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .about-body {
+        font-size: 1.1rem;
+    }
+
+    .cta-headline {
+        font-size: 12vw;
+    }
+}
+
+
+/* ======== ABOUT PAGE - STYLES ======== */
+
+#about-hero {
+    height: 100vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.about-hero-content {
+    max-width: 1000px; /* ทำให้ข้อความกว้างขึ้นเล็กน้อย */
+    text-align: left; /* เปลี่ยนเป็นชิดซ้าย */
+    position: relative;
+    z-index: 2;
+    padding: 2rem;
+}
+
+.about-headline {
+    font-family: var(--font-display);
+    font-weight: 700;
+    font-size: 8vw; /* ปรับขนาดให้เล็กลงจาก 10vw */
+    line-height: 0.9;
+    text-transform: uppercase;
+    color: var(--color-light);
+    margin-bottom: 2rem;
+}
+
+.about-headline span {
+    display: block; /* ทำให้ซ้อนกันแนวตั้ง */
+}
+
+.about-hero-body {
+    font-family: var(--font-serif);
+    font-size: 1.5rem; /* ตัวอักษรใหญ่ อ่านง่าย */
+    line-height: 1.7;
+    color: var(--color-secondary-dark); /* สีเทาอ่อน */
+    max-width: 65ch; /* จำกัดความกว้างข้อความให้อ่านง่าย */
+}
+
+.about-image-fullbleed {
+    width: 100%;
+    height: 70vh; /* ความสูง 70% ของหน้าจอ */
+    background-color: #222; /* สีสำรอง */
+    background-attachment: fixed; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.bento-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+.bento-box {
+    background-color: var(--color-light);
+    border: 1px solid var(--color-border);
+    border-radius: 16px; /* ทำให้ขอบมน */
+    padding: 2rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.bento-box:hover {
+    transform: translateY(-10px); /* ขยับขึ้นเมื่อเมาส์ชี้ */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.08); /* เพิ่มเงา */
+}
+
+.bento-box h3 {
+    font-family: var(--font-display);
+    font-size: 1.2rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 1.5rem;
+    color: var(--color-dark);
+}
+
+.bento-box ul {
+    list-style: none;
+}
+
+.bento-box li {
+    font-family: var(--font-serif);
+    font-size: 1.1rem;
+    color: #444;
+    line-height: 1.8;
+}
+
+.cta-simple {
+    text-align: center;
+    padding-top: 0; /* ไม่ต้องเว้นระยะห่างจาก Skills มาก */
+    padding-bottom: 8rem;
+}
+
+/* ======== PROMO CARD (FOR ARTICLES) ======== */
+.promo-card {
+    height: 350px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    background-color: var(--color-dark);
+    padding: 2rem;
+    border-radius: 16px;
+}
+
+.promo-text {
+}
+
+.promo-image-placeholder {
+    width: 100%;
+    height: 250px;
+    background-color: #222; /* สีเทาเข้ม */
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: var(--font-serif);
+    color: var(--color-secondary-dark);
+}
+
+.promo-image-placeholder::before {
+    content: 'Medium'; /* ข้อความ placeholder (คุณสามารถเปลี่ยนเป็นโลโก้ Medium ได้) */
+    font-size: 2rem;
+    opacity: 0.5;
+}
+
+/* ======== VIDEO CONTAINER (FOR TIKTOK) ======== */
+.video-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.tiktok-embed {
+    margin: 0 auto !important;
+}
+
+/* ======== RESPONSIVE DESIGN (สำหรับส่วนที่เพิ่มใหม่) ======== */
+
+@media (max-width: 900px) {
+    /* ทำให้ Promo Card ซ้อนกันแนวตั้งเมื่อจอเล็ก */
+    .promo-card {
+        grid-template-columns: 1fr;
+    }
+    
+    .promo-image-placeholder {
+        order: -1; /* ย้ายรูปไปไว้ด้านบน */
+        height: 200px;
+    }
+
+    .about-body {
+        font-size: 1.1rem;
+    }
+}
+
+/* ======== CONTACT PAGE - STYLES ======== */
+
+#contact-hero {
+    height: 1200px;   
+    min-height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.contact-hero-content {
+    width: 100%;
+    max-width: 1000px;
+    padding: 2rem;
+    position: relative;
+    z-index: 2;
+    padding-top: 12rem;
+}
+
+.contact-links {
+    margin-top: 4rem;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.contact-link-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 2.5rem 2rem; /* เพิ่ม padding ด้านข้าง */
+    border-top: 1px solid var(--theme-border); /* เส้นขอบ (สีเทาอ่อน #4d4d4d) */
+    color: var(--color-light);
+    text-decoration: none;
+    border-radius: 12px; /* เพิ่มขอบมนเล็กน้อย */
+    background-color: #1a1a1a; /* <-- เพิ่มบรรทัดนี้ */
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.contact-link-row:hover {
+    background-color: #333; /* สีพื้นหลังที่สว่างขึ้นเล็กน้อย */
+    transform: scale(1.02); /* ขยายใหญ่ขึ้น */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+.contact-link-title {
+    font-family: var(--font-display);
+    font-size: 2rem; /* ขนาดใหญ่ */
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+.contact-link-value {
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    color: var(--color-secondary-dark); /* สีเทา */
+    display: none; 
+}
+
+.contact-link-arrow {
+    font-family: var(--font-serif);
+    font-size: 2rem;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.contact-link-row:hover .contact-link-arrow {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+/* ======== RESPONSIVE (สำหรับ Contact Page) ======== */
+
+@media (min-width: 600px) {
+    .contact-link-value {
+        display: block; /* กลับมาโชว์ */
+    }
+}
+
+@media (max-width: 768px) {
+    .contact-link-row {
+        flex-direction: column; /* จัดเรียงแนวตั้ง */
+        align-items: flex-start; /* ชิดซ้าย */
+        gap: 0.5rem;
+        padding: 1.5rem;
+    }
+    
+    .contact-link-row:hover {
+        transform: scale(1.01); /* ลดการขยายลง */
+    }
+
+    .contact-link-title {
+        font-size: 1.5rem;
+    }
+
+    .contact-link-value {
+        font-size: 1rem;
+    }
+
+    .contact-link-arrow {
+        display: none;
+    }
+}
+
+/* ================================================
+โค้ดใหม่สำหรับ ABOUT PAGE (แทนที่บล็อก NEW STYLES เดิม)
+================================================
+*/
+
+/* --- 1. หัวข้อ (Titles) --- */
+.section-title-dark {
+    font-family: var(--font-display);
+    font-size: 2rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-light); /* สีขาว */
+    margin-bottom: 3rem;
+}
+
+
+/* --- 2. Education Section (LIGHT-BG) --- */
+.light-bg .timeline-container {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+    border-left: 2px solid var(--color-border); /* เส้นไทม์ไลน์สีเทาอ่อน */
+    padding: 2rem 0;
+}
+.light-bg .timeline-item {
+    position: relative;
+    margin-left: 2rem;
+    margin-bottom: 2.5rem;
+}
+.light-bg .timeline-item:last-child { margin-bottom: 0; }
+.light-bg .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -2.5rem;
+    top: 8px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: var(--color-secondary-dark); /* จุดสีเทาเข้ม */
+    border: 2px solid var(--color-light); /* ขอบสีขาว */
+}
+.light-bg .timeline-content {
+    background-color: var(--color-light); /* สีขาว */
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    border: 1px solid var(--color-border); /* ขอบสีเทาอ่อน */
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* เพิ่มเงาเล็กน้อย */
+    display: flex;
+    align-items: flex-start;
+    gap: 1.5rem;
+}
+.timeline-logo {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    flex-shrink: 0;
+    background-color: var(--color-secondary-light); /* พื้นหลังสำรอง */
+}
+.timeline-text-content { flex: 1; }
+.light-bg .timeline-content .badge {
+    display: inline-block;
+    background-color: var(--color-secondary-light); /* พื้นหลังเทาอ่อนมาก */
+    color: var(--color-secondary-dark); /* ตัวอักษรเทาเข้ม */
+    font-size: 0.75rem;
+    font-weight: 500;
+    padding: 0.25rem 0.75rem;
+    border-radius: 20px;
+    margin-bottom: 0.75rem;
+}
+.light-bg .timeline-content h3 {
+    font-family: var(--font-serif);
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: var(--color-dark); /* สีดำ */
+    margin-bottom: 0.25rem;
+}
+.light-bg .timeline-content h4 {
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    font-weight: 500;
+    color: var(--color-secondary-dark); /* สีเทาเข้ม */
+    margin-bottom: 0.5rem;
+}
+.light-bg .timeline-content .location {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-secondary-dark);
+    margin-bottom: 1rem;
+}
+.light-bg .timeline-content p {
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    line-height: 1.6;
+    color: var(--color-secondary-dark); /* สีเทาเข้ม */
+}
+
+
+/* --- 3. Achievements Section (สไตล์สำหรับ DARK-BG และ LIGHT-BG) --- */
+
+/* A. กล่องที่เลื่อนได้ (Scroll Container) */
+.achievements-scroll-container {
+    max-width: 900px;
+    margin: 0 auto;
+    max-height: 450px;
+    overflow-y: auto;
+    padding-right: 1rem;
+}
+.achievement-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    margin: 0;
+    max-width: none;
+}
+
+/* B. Scrollbar (สไตล์ Dark) */
+.dark-bg .achievements-scroll-container::-webkit-scrollbar { width: 8px; }
+.dark-bg .achievements-scroll-container::-webkit-scrollbar-track {
+    background: #1f2937;
+    border-radius: 10px;
+}
+.dark-bg .achievements-scroll-container::-webkit-scrollbar-thumb {
+    background-color: #374151;
+    border-radius: 10px;
+    border: 2px solid #1f2937;
+}
+.dark-bg .achievements-scroll-container::-webkit-scrollbar-thumb:hover { background-color: #4b5563; }
+
+/* C. Scrollbar (สไตล์ Light) (เพิ่มใหม่) */
+.light-bg .achievements-scroll-container::-webkit-scrollbar { width: 8px; }
+.light-bg .achievements-scroll-container::-webkit-scrollbar-track {
+    background: var(--color-secondary-light); /* สีเทาอ่อนมาก */
+    border-radius: 10px;
+}
+.light-bg .achievements-scroll-container::-webkit-scrollbar-thumb {
+    background-color: #c1c1c1; /* สีเทา */
+    border-radius: 10px;
+    border: 2px solid var(--color-secondary-light);
+}
+.light-bg .achievements-scroll-container::-webkit-scrollbar-thumb:hover { background-color: #a8a8a8; }
+
+
+/* D. การ์ด (สไตล์ Dark) */
+.dark-bg .achievement-card {
+    display: block;
+    position: relative;
+    background-color: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.dark-bg .achievement-card:hover {
+    background-color: #2a384c;
+    transform: translateY(-5px);
+}
+.dark-bg .achievement-card .date {
+    color: #9ca3af;
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+.dark-bg .achievement-card h3 {
+    color: var(--color-light);
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+.dark-bg .achievement-card p {
+    color: #9ca3af;
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    line-height: 1.6;
+    padding-right: 2rem;
+}
+
+/* E. การ์ด (สไตล์ Light) (เพิ่มใหม่) */
+.light-bg .achievement-card {
+    display: block;
+    position: relative;
+    background-color: var(--color-light); /* สีขาว */
+    border: 1px solid var(--color-border); /* สีเทาอ่อน */
+    border-radius: 12px;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05); /* เงา */
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.light-bg .achievement-card:hover {
+    background-color: var(--color-secondary-light); /* สีเทาอ่อนมาก */
+    transform: translateY(-5px);
+}
+.light-bg .achievement-card .date {
+    color: var(--color-secondary-dark); /* สีเทาเข้ม */
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    margin-bottom: 0.75rem;
+    display: block;
+}
+.light-bg .achievement-card h3 {
+    color: var(--color-dark); /* สีดำ */
+    font-family: var(--font-serif);
+    font-size: 1.25rem;
+    font-weight: 800;
+    margin-bottom: 0.5rem;
+}
+.light-bg .achievement-card p {
+    color: var(--color-secondary-dark); /* สีเทาเข้ม */
+    font-family: var(--font-serif);
+    font-size: 1rem;
+    line-height: 1.6;
+    padding-right: 2rem;
+}
+
+
+/* F. ไอคอน (SVG) */
+.achievement-card .icon-link {
+    position: absolute;
+    top: 1.5rem;
+    right: 1.5rem;
+    width: 24px;
+    height: 24px;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%239ca3af'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-6.375M21 3v6.375' /%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    transition: background-image 0.3s ease;
+}
+/* ไอคอน (Hover บนพื้น Dark) */
+.dark-bg .achievement-card:hover .icon-link {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23ffffff'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-6.375M21 3v6.375' /%3E%3C/svg%3E");
+}
+/* ไอคอน (Hover บนพื้น Light) (เพิ่มใหม่) */
+.light-bg .achievement-card:hover .icon-link {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke-width='1.5' stroke='%23111111'%3E%3Cpath stroke-linecap='round' stroke-linejoin='round' d='M13.5 6H5.25A2.25 2.25 0 003 8.25v10.5A2.25 2.25 0 005.25 21h10.5A2.25 2.25 0 0018 18.75V10.5m-10.5 6L21 3m0 0h-6.375M21 3v6.375' /%3E%3C/svg%3E");
+}
+
+
+/* --- 4. Key Strengths (LIGHT-BG) --- */
+.light-bg .strengths-container {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.75rem;
+}
+.light-bg .strength-pill {
+    display: inline-block;
+    background-color: transparent;
+    color: var(--color-secondary-dark);
+    font-family: var(--font-sans);
+    font-size: 0.8rem;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 20px;
+    border: 1px solid var(--color-border);
+    transition: all 0.3s ease;
+}
+.light-bg .strength-pill:hover {
+    background-color: var(--color-secondary-light);
+    border-color: var(--color-secondary-dark);
+}
+
+#education,
+#experiences,  /* <-- นี่คือตัวที่เพิ่มเข้ามา */
+#achievements,
+#key-strengths {
+    padding-left: 2rem; 
+    padding-right: 2rem; 
+    
+    /* ตั้งค่ากลางๆ ให้ทุกอัน */
+    padding-top: 2rem;
+    padding-bottom: 6rem;
+}
+
+/* * เขียนทับ (override) เฉพาะตัวแรกกับตัวสุดท้าย 
+ * เพื่อให้มีระยะห่างที่ถูกต้อง
+*/
+#education {
+    padding-top: 3rem; /* อันแรก ต้องห่างจากรูป */
+    padding-bottom: 3rem;
+}
+
+
+
+.promo-article-preview {
+    display: block;
+    text-decoration: none;
+    background-color: #222;
+    height: 100%;
+    transition: all 0.3s ease;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.25);
+}
+
+.promo-article-preview:hover {
+    border: 1px solid #666;  /* ✅ เพิ่มขอบสว่างขึ้นตอน hover */
+}
+
+/* รูปภาพ */
+.promo-article-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+    border-radius: 16px 16px 0px 0px;
+}
+
+/* ชื่องาน */
+.promo-article-title {
+    font-family: var(--font-serif);
+    font-weight: 800;
+    font-size: 1.1rem;
+    color: var(--color-light);
+    padding: 1rem 1.5rem 0.25rem 1.5rem;
+    line-height: 1.4;
+}
+
+/* คำบรรยาย */
+.promo-article-caption {
+    font-family: var(--font-sans);
+    font-size: 0.9rem;
+    color: var(--color-secondary-dark);
+    padding: 0 1.5rem 1.5rem 1.5rem;
+}
