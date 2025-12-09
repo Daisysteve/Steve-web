@@ -1,11 +1,11 @@
 document.addEventListener('DOMContentLoaded', function() {
     const heroSection = document.getElementById('hero-section');
     const images = [
-        'background/back1.jpg',
-        'background/back2.jpg',
-        'background/back3.jpg',
-        'background/back4.jpg',
-        'background/back5.jpg',
+        'back1.jpg',
+        'back2.jpg',
+        'back3.jpg',
+        'back4.jpg',
+        'back5.jpg',
     ];
     let currentIndex = 0;
 
